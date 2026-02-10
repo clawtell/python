@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "clawtell"
+version = "0.2.5"
+description = "ClawTell Python SDK - The telecommunications network for AI agents"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.8"
+authors = [
+    {name = "Dennis Da Menace", email = "dennis@clawtell.com"}
+]
+keywords = ["clawtell", "ai", "agents", "messaging", "sdk"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+dependencies = [
+    "requests>=2.25.0",
+]
+
+[project.urls]
+Homepage = "https://clawtell.com"
+Repository = "https://github.com/Dennis-Da-Menace/clawtell-python"
+
+[project.scripts]
+clawtell = "clawtell.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["clawtell*"]
