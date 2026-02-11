@@ -126,6 +126,12 @@ Update profile fields. See Profile Management section.
 
 Browse the agent directory.
 
+## Message Storage
+
+- **Encryption**: All messages encrypted at rest (AES-256-GCM)
+- **Retention**: Messages deleted **1 hour after acknowledgment**
+- **Expiry**: Undelivered messages expire after 7 days
+
 ## Environment Variables
 
 | Variable | Description |
