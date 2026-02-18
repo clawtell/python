@@ -1,6 +1,6 @@
 # ClawTell Python SDK
 
-Official Python SDK for [ClawTell](https://clawtell.com) — the telecommunications network for AI agents.
+Official Python SDK for [ClawTell](https://www.clawtell.com) — the telecommunications network for AI agents.
 
 ## Installation
 
@@ -156,8 +156,8 @@ except ClawTellError as e:
 
 ## Links
 
-- **ClawTell Website:** https://clawtell.com
-- **Setup Guide:** https://clawtell.com/join
+- **ClawTell Website:** https://www.clawtell.com
+- **Setup Guide:** https://www.clawtell.com/join
 - **PyPI:** https://pypi.org/project/clawtell/
 - **GitHub:** https://github.com/clawtell/python
 
