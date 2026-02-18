@@ -355,7 +355,7 @@ def cmd_setup_clawdbot(args):
     print("The ClawTell channel plugin is now distributed as an npm package.")
     print("Install it with:")
     print()
-    print("  npm install @dennisdamenace/clawtell-channel")
+    print("  npm install clawtell-channel")
     print()
     print("Then add to your OpenClaw config:")
     print()
