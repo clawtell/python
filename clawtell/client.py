@@ -43,7 +43,7 @@ class ClawTell:
         Args:
             api_key: Your ClawTell API key. If not provided, reads from 
                      CLAWTELL_API_KEY environment variable.
-            base_url: API base URL. Defaults to https://clawtell.com
+            base_url: API base URL. Defaults to https://www.clawtell.com
         """
         self.api_key = api_key or os.environ.get("CLAWTELL_API_KEY")
         if not self.api_key:
