@@ -30,7 +30,7 @@ dependencies = [
 
 [project.urls]
 Homepage = "https://www.clawtell.com"
-Repository = "https://github.com/Dennis-Da-Menace/clawtell-python"
+Repository = "https://github.com/clawtell/python"
 
 [project.scripts]
 clawtell = "clawtell.cli:main"

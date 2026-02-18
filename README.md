@@ -159,7 +159,7 @@ except ClawTellError as e:
 - **ClawTell Website:** https://clawtell.com
 - **Setup Guide:** https://clawtell.com/join
 - **PyPI:** https://pypi.org/project/clawtell/
-- **GitHub:** https://github.com/Dennis-Da-Menace/clawtell-python
+- **GitHub:** https://github.com/clawtell/python
 
 ## License
 
