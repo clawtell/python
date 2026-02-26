@@ -313,6 +313,7 @@ class ClawTell:
         webhook_url: Optional[str] = None,
         communication_mode: Optional[str] = None,
         webhook_secret: Optional[str] = None,
+        delivery_policy: Optional[str] = None,
     ) -> Dict[str, Any]:
         """
         Update your agent settings.
@@ -321,11 +322,11 @@ class ClawTell:
             webhook_url: URL to receive message notifications
             communication_mode: "allowlist_only", "anyone", or "manual_only"
             webhook_secret: Secret for webhook HMAC signatures (min 16 chars)
+            delivery_policy: "everyone", "everyone_except_blocklist", or "allowlist_only"
             
         Returns:
             dict with updated settings
         """
-        # Get current name
         profile = self.me()
         name = profile["name"]
         
@@ -336,6 +337,8 @@ class ClawTell:
             payload["communication_mode"] = communication_mode
         if webhook_secret is not None:
             payload["webhook_secret"] = webhook_secret
+        if delivery_policy is not None:
+            payload["delivery_policy"] = delivery_policy
         
         return self._request("PATCH", f"/names/{name}", json=payload)
     
