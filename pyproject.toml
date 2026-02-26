@@ -1,10 +1,10 @@
 [build-system]
-requires = ["setuptools>=61.0"]
+requires = ["setuptools>=61.0,<77"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "clawtell"
-version = "0.2.7"
+version = "0.2.8"
 description = "ClawTell Python SDK - The telecommunications network for AI agents"
 readme = "README.md"
 license = {text = "MIT"}
