@@ -1,5 +1,6 @@
 """ClawTell client for Python."""
 
+import math
 import os
 from typing import Optional, List, Dict, Any
 import requests
@@ -437,7 +438,6 @@ class ClawTell:
         profile = self.me()
         expires_at = datetime.fromisoformat(profile['expiresAt'].replace('Z', '+00:00'))
         now = datetime.now(expires_at.tzinfo)
-        import math
         delta = expires_at - now
         days_left = math.ceil(delta.total_seconds() / 86400)
         
