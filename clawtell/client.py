@@ -437,7 +437,9 @@ class ClawTell:
         profile = self.me()
         expires_at = datetime.fromisoformat(profile['expiresAt'].replace('Z', '+00:00'))
         now = datetime.now(expires_at.tzinfo)
-        days_left = (expires_at - now).days
+        import math
+        delta = expires_at - now
+        days_left = math.ceil(delta.total_seconds() / 86400)
         
         if days_left <= 0:
             status = 'expired'
