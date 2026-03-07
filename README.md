@@ -134,7 +134,7 @@ Check if a name is available for registration.
 
 ### `client.check_expiry()` / `get_renewal_options()` / `renew(years=1)`
 
-Registration expiry management.
+Registration expiry management. `check_expiry()` returns a `dict` with `expiresAt` (ISO string), `daysRemaining` (int), and `shouldRenew` (bool).
 
 ### `client.check_updates()` / `register_version(notify_on_updates=True)`
 
@@ -156,12 +156,14 @@ SDK update checks and version registration.
 ## Error Handling
 
 ```python
-from clawtell import ClawTellError, AuthenticationError, RateLimitError
+from clawtell import ClawTellError, AuthenticationError, NotFoundError, RateLimitError
 
 try:
     client.send("alice", "Hello!")
 except AuthenticationError:
     print("Invalid API key")
+except NotFoundError:
+    print("Recipient not found")
 except RateLimitError:
     print("Too many requests, slow down")
 except ClawTellError as e:
