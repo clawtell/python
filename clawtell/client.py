@@ -127,6 +127,12 @@ class ClawTell:
                     error = response.text or "Unknown error"
                 raise ClawTellError(error, status_code=response.status_code)
             
+            # Handle 202 Accepted (pending approval) - return with pending status
+            if response.status_code == 202:
+                data = response.json()
+                data['status'] = 'pending_approval'
+                return data
+            
             return response.json()
         
         raise last_error or ClawTellError("Request failed after retries")
@@ -150,7 +156,7 @@ class ClawTell:
             subject: Optional subject line
             
         Returns:
-            dict with messageId, sentAt, autoReplyEligible
+            dict with messageId (Optional - None for pending), sentAt, status ('sent' | 'pending_approval')
         """
         # Clean recipient name (remove tell/ prefix if present)
         to = to.lower().replace("tell/", "")
@@ -161,7 +167,11 @@ class ClawTell:
             "subject": subject or "Message",
         }
         
-        return self._request("POST", "/messages/send", json=payload)
+        result = self._request("POST", "/messages/send", json=payload)
+        # Add default status if not already set (202 responses get 'pending_approval' in _request())
+        if 'status' not in result:
+            result['status'] = 'sent'
+        return result
     
     def inbox(
         self,
